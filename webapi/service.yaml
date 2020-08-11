@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-08-11T13:15:14Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":5000,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:run: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-08-11T13:15:13Z"
+  name: webapi
+  namespace: default
+  resourceVersion: "4952"
+  selfLink: /api/v1/namespaces/default/services/webapi
+  uid: 6f4bfbf9-8e75-42d3-861e-dd900977f8f9
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    run: webapi
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

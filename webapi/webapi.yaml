@@ -1,0 +1,171 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2020-08-11T13:15:13Z"
+  labels:
+    run: webapi
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:containers:
+          k:{"name":"webapi"}:
+            .: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:ports:
+              .: {}
+              k:{"containerPort":5000,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:protocol: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-08-11T13:15:13Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.44.0.9"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2020-08-11T13:18:33Z"
+  name: webapi
+  namespace: default
+  resourceVersion: "5442"
+  selfLink: /api/v1/namespaces/default/pods/webapi
+  uid: 156d0bdb-f319-467b-a20e-3357141ba5c2
+spec:
+  containers:
+  - image: avijitmajumder/python-gethostwebapi:v3
+    imagePullPolicy: IfNotPresent
+    name: webapi
+    ports:
+    - containerPort: 5000
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-7psqc
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: node01
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-7psqc
+    secret:
+      defaultMode: 420
+      secretName: default-token-7psqc
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T13:15:13Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T13:16:59Z"
+    message: 'containers with unready status: [webapi]'
+    reason: ContainersNotReady
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T13:16:59Z"
+    message: 'containers with unready status: [webapi]'
+    reason: ContainersNotReady
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T13:15:13Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://6216a5546e69d2f46166a1f571ab7559d194b5e64a7d74fdbcbc16d187575502
+    image: avijitmajumder/python-gethostwebapi:v1
+    imageID: docker-pullable://avijitmajumder/python-gethostwebapi@sha256:b3eb235be6bf9ef8012db9f3f5e642f11c887c9fb6b9a12e95f7ce2721705f08
+    lastState:
+      terminated:
+        containerID: docker://6216a5546e69d2f46166a1f571ab7559d194b5e64a7d74fdbcbc16d187575502
+        exitCode: 1
+        finishedAt: "2020-08-11T13:18:20Z"
+        reason: Error
+        startedAt: "2020-08-11T13:18:20Z"
+    name: webapi
+    ready: false
+    restartCount: 5
+    started: false
+    state:
+      waiting:
+        message: back-off 2m40s restarting failed container=webapi pod=webapi_default(156d0bdb-f319-467b-a20e-3357141ba5c2)
+        reason: CrashLoopBackOff
+  hostIP: 172.17.0.12
+  phase: Running
+  podIP: 10.44.0.9
+  podIPs:
+  - ip: 10.44.0.9
+  qosClass: BestEffort
+  startTime: "2020-08-11T13:15:13Z"
