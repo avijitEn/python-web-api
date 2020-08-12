@@ -5,7 +5,7 @@ from flask import render_template
 import socket
 from flask import Flask
 import random
-#from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv, find_dotenv
 
 app = Flask(__name__)
 color_codes = {
@@ -39,7 +39,7 @@ def get_webapi_hostname():
 
     # Load the environment variables from the .env file.
     # They will be overwritten if environment vars are set
-    #load_dotenv(find_dotenv())
+    load_dotenv(find_dotenv())
     url = os.environ.get("APPURL")
     #url='http://127.0.0.2:5000/'
 
