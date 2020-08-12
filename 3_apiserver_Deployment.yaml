@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: apiserver
+  name: apiserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apiserver
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: apiserver
+    spec:
+      containers:
+      - image: avijitmajumder/python-apiserver:v1
+        name: python-apiserver
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: apiserver
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: apiserver
+status:
+  loadBalancer: {}
+  
