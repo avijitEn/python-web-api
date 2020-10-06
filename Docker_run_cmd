@@ -1,0 +1,5 @@
+docker run -itd --name apiserver avijitmajumder/python-apiserver:v1
+docker run -itd --name webapp --link apiserver -p 80:5000 avijitmajumder/python-gethostwebapi:v4
+docker ps
+docker logs -f webapp
+docker ps
